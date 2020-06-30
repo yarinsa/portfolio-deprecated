@@ -1,0 +1,77 @@
+.bp3-button {
+  font-size: 12px;
+
+  // handle icon button (make icons slightly bigger)
+  .bp3-icon:only-child > svg {
+    width: 16px;
+    height: 16px;
+  }
+
+  // for icon + text, cancel default margin-right
+  > * {
+    margin-right: 8px;
+  }
+  // add our own
+  // > * + .bp3-button-text {
+  //   margin-left: 8px;
+  // }
+}
+
+.bp3-button.bp3-large {
+  font-size: 14px;
+
+  // handle icon button (make icons slightly bigger)
+  .bp3-icon:only-child > svg {
+    width: 18px;
+    height: 18px;
+  }
+}
+
+.bp3-button.bp3-small {
+  font-size: 12px;
+
+  // handle icon button (make icons slightly smaller)
+  .bp3-icon:only-child > svg {
+    width: 12px;
+    height: 12px;
+  }
+}
+
+// Make button loading spinner thinner
+.bp3-button-spinner svg {
+  stroke-width: 10px;
+}
+
+.bp3-button:focus {
+  // remove ugly outline
+  outline: 0;
+}
+
+.bp3-button.bp3-minimal:active,
+.bp3-button.bp3-minimal.bp3-active {
+  background: #3dcc9126;
+}
+
+.bp3-button.bp3-intent-primary {
+  background-color: $pt-intent-primary;
+  &:hover {
+    background-color: lighten($color: $pt-intent-primary, $amount: 1);
+  }
+}
+
+.bp3-button.bp3-outlined.bp3-intent-primary {
+  border-color: $pt-intent-primary;
+  &:hover {
+    border-color: $pt-intent-primary;
+  }
+}
+
+// .bp3-button.bp3-outlined.bp3-intent-primary {
+//   color: $light-green1;
+//   &:hover {
+//     color: $light-green2;
+//   }
+//   &.bp3-active {
+//     color: $light-green2;
+//   }
+// }

@@ -1,0 +1,23 @@
+@import "~@blueprintjs/core/src/blueprint.scss";
+// Define BlueprintJS theme + customization
+@import "./blueprint-js/index";
+
+@import "./colors";
+@import "./typography";
+
+:root {
+  font-size: 16px;
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  background-color: $background-color;
+  height: 95vh;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+#root {
+  height: 100vh;
+}

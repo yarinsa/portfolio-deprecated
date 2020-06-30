@@ -1,26 +1,61 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React, { useEffect } from "react";
+import "./theme/index.scss";
+import "react-image-gallery/styles/scss/image-gallery.scss";
+
+import { Home } from "./scenes/Home";
+import { Tabs } from "./components/Tabs";
+import styled from "styled-components/macro";
+import {
+  BrowserRouter as Router,
+  Switch,
+  Route,
+  Redirect,
+} from "react-router-dom";
+import { About } from "./scenes/About";
+import { Work } from "./scenes/Work";
+import { Contact } from "./scenes/Contact";
+
+document.querySelector("body")?.classList.replace("red", "blue");
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Root>
+      <Router>
+        <Header>
+          <Tabs />
+        </Header>
+        <Switch>
+          <Main>
+            <Route exact path="/">
+              <Redirect to="/home" />
+            </Route>
+            <Route path="/Home" component={Home} />
+            <Route path="/About" component={About} />
+            <Route path="/Work" component={Work} />
+            <Route path="/Contact" component={Contact} />
+          </Main>
+        </Switch>
+      </Router>
+    </Root>
   );
 }
 
 export default App;
+
+const Root = styled.div`
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  padding: 20px;
+`;
+
+const Main = styled.main`
+  flex: 1;
+`;
+
+const Header = styled.header`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 30px;
+`;
