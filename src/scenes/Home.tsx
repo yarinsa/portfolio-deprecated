@@ -30,14 +30,14 @@ const Subtitle = styled.h1`
   font-weight: 100;
   margin: 0;
   font-size: 42px;
-  font-family: "SF-Pro-Rounded";
+  font-family: SF-Pro-Rounded;
   :nth-child(3) {
     padding-left: 40px;
   }
 `;
 
 const Paragraph = styled.p`
-  font-family: "New-York";
+  font-family: New-York;
   color: ${theme.primaryColor};
   font-size: 24px;
   margin: 0;

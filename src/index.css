@@ -13,3 +13,5 @@ code {
 #root {
   width: 97vw;
 }
+
+@import "./_typography-two.scss";

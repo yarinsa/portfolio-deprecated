@@ -1,7 +1,7 @@
 import React, { useEffect } from "react";
 import "./theme/index.scss";
+// import "./_typography-two.scss";
 import "react-image-gallery/styles/scss/image-gallery.scss";
-
 import { Home } from "./scenes/Home";
 import { Tabs } from "./components/Tabs";
 import styled from "styled-components/macro";

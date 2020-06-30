@@ -36,7 +36,7 @@ const CardCaption = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: center;
-  padding: 0rem 3rem;
+  padding: 10px;
   color: #fff;
   z-index: 1;
   position: absolute;
@@ -47,6 +47,8 @@ const CardCaption = styled.div`
   opacity: 0;
   transition: 0.25s ease-in-out;
   background-color: #141c3a;
+  text-overflow: ellipsis;
+  overflow: hidden;
   &:hover {
     opacity: 0.8;
   }
