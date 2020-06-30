@@ -21,7 +21,7 @@ export const Home: React.FC<{}> = ({}) => {
 const Title = styled.h1`
   font-family: "New-York";
   color: ${theme.primaryColor};
-  font-size: 84px;
+  font-size: 116px;
   font-weight: 100;
   margin: 0;
 `;
@@ -29,7 +29,7 @@ const Title = styled.h1`
 const Subtitle = styled.h1`
   font-weight: 100;
   margin: 0;
-  font-size: 42px;
+  font-size: 52px;
   font-family: SF-Pro-Rounded;
   :nth-child(3) {
     padding-left: 40px;
@@ -39,7 +39,7 @@ const Subtitle = styled.h1`
 const Paragraph = styled.p`
   font-family: New-York;
   color: ${theme.primaryColor};
-  font-size: 24px;
+  font-size: 30px;
   margin: 0;
   margin-top: 60px;
   font-style: italic;

@@ -54,7 +54,7 @@ const Caption = styled.div`
   height: 40px;
   opacity: 0;
   border-radius: 6px;
-  font-size: 8px;
+  font-size: 10px;
   transition: 0.25s ease-in-out;
   background-color: #141c3a;
   &:hover {

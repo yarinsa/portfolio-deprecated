@@ -76,7 +76,7 @@ const TitleContainer = styled.div`
 
 const Title = styled.h3`
   color: ${theme.primaryColor};
-  font-size: 14px;
+  font-size: 18px;
   opacity: 1;
   margin: 0;
   top: 0px;
@@ -85,7 +85,7 @@ const Title = styled.h3`
 const Description = styled.p`
   font-family: SF Pro Display;
   font-weight: 500;
-  font-size: 14px;
+  font-size: 18px;
   line-height: 19px;
   padding: 10px;
   margin: 0;
@@ -95,7 +95,7 @@ const TableText = styled.td`
   font-family: SF Pro Display;
   font-style: normal;
   font-weight: 300;
-  font-size: 14px;
+  font-size: 18px;
   line-height: 19px;
   letter-spacing: 0.04em;
   padding: 0 5px;
@@ -107,7 +107,7 @@ const TableHeader = styled.td`
   font-family: SF Pro Display;
   font-style: normal;
   font-weight: 400;
-  font-size: 14px;
+  font-size: 18px;
   line-height: 19px;
   margin: 20px 0 5px 0;
   padding-left: 5px;

@@ -119,7 +119,7 @@ const Description = styled.p`
 `;
 
 const Paragraph = styled.div`
-  font-size: 12px;
+  font-size: 15px;
   margin: 10px;
 
   p {
@@ -133,7 +133,7 @@ const ParagraphTitle = styled.h3`
   font-family: SF Pro Display;
   font-style: normal;
   font-weight: 400;
-  font-size: 14px;
+  font-size: 18px;
   line-height: 19px;
   margin: 5px 0;
 `;
