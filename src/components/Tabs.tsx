@@ -19,7 +19,7 @@ export const Tabs: React.FC<{}> = ({}) => {
 
   const [selectedTabIndex, setTabIndex] = useState(0);
 
-  const tabs: string[] = ["Home", "About", "Work", "Contact"];
+  const tabs: string[] = ["Home", "About", "Work", "Contact", "Admin"];
   const handleKey = (event: KeyboardEvent) => {
     if (event.key === "ArrowRight" && selectedTabIndex < tabs.length - 1) {
       handleTabChange(selectedTabIndex + 1);
@@ -46,6 +46,7 @@ export const Tabs: React.FC<{}> = ({}) => {
           <Tab id="1" title="About" />
           <Tab id="2" title="Work" />
           <Tab id="3" title="Contact" />
+          <Tab id="4" title="Admin" />
         </BPTabs>
       </Tooltip>
     </Root>

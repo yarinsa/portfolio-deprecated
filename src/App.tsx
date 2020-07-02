@@ -14,28 +14,28 @@ import {
 import { About } from "./scenes/About";
 import { Work } from "./scenes/Work";
 import { Contact } from "./scenes/Contact";
+import Admin from "./scenes/Admin";
 
 document.querySelector("body")?.classList.replace("red", "blue");
 
 function App() {
   return (
     <Root>
-      <Router>
-        <Header>
-          <Tabs />
-        </Header>
-        <Switch>
-          <Main>
-            <Route exact path="/">
-              <Redirect to="/home" />
-            </Route>
-            <Route path="/Home" component={Home} />
-            <Route path="/About" component={About} />
-            <Route path="/Work" component={Work} />
-            <Route path="/Contact" component={Contact} />
-          </Main>
-        </Switch>
-      </Router>
+      <Header>
+        <Tabs />
+      </Header>
+      <Switch>
+        <Main>
+          <Route exact path="/">
+            <Redirect to="/home" />
+          </Route>
+          <Route path="/Home" component={Home} />
+          <Route path="/About" component={About} />
+          <Route path="/Work" component={Work} />
+          <Route path="/Contact" component={Contact} />
+          <Route path="/Admin" component={Admin} />
+        </Main>
+      </Switch>
     </Root>
   );
 }

@@ -1,0 +1,34 @@
+{
+    "api": {
+        "yarinportfolio": {
+            "service": "AppSync",
+            "providerPlugin": "awscloudformation",
+            "output": {
+                "authConfig": {
+                    "additionalAuthenticationProviders": [],
+                    "defaultAuthentication": {
+                        "authenticationType": "API_KEY",
+                        "apiKeyConfig": {
+                            "description": "portfolio api",
+                            "apiKeyExpirationDays": "365"
+                        }
+                    }
+                }
+            }
+        }
+    },
+    "auth": {
+        "yarinportfolio3945c558": {
+            "service": "Cognito",
+            "providerPlugin": "awscloudformation",
+            "dependsOn": []
+        }
+    },
+    "function": {},
+    "storage": {
+        "yarinPortfolioStorage": {
+            "service": "S3",
+            "providerPlugin": "awscloudformation"
+        }
+    }
+}

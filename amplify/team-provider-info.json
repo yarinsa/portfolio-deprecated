@@ -1,0 +1,20 @@
+{
+    "dev": {
+        "awscloudformation": {
+            "AuthRoleName": "amplify-yarinportfolio-dev-165231-authRole",
+            "UnauthRoleArn": "arn:aws:iam::052299608953:role/amplify-yarinportfolio-dev-165231-unauthRole",
+            "AuthRoleArn": "arn:aws:iam::052299608953:role/amplify-yarinportfolio-dev-165231-authRole",
+            "Region": "us-east-1",
+            "DeploymentBucketName": "amplify-yarinportfolio-dev-165231-deployment",
+            "UnauthRoleName": "amplify-yarinportfolio-dev-165231-unauthRole",
+            "StackName": "amplify-yarinportfolio-dev-165231",
+            "StackId": "arn:aws:cloudformation:us-east-1:052299608953:stack/amplify-yarinportfolio-dev-165231/1d798260-bba2-11ea-b2d4-0a531bfc577e",
+            "AmplifyAppId": "dtazyjtqkvdkt"
+        },
+        "categories": {
+            "auth": {
+                "yarinportfolio3945c558": {}
+            }
+        }
+    }
+}

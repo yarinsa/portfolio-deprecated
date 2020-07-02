@@ -1,0 +1,21 @@
+type Project @model {
+  id: ID!
+  name: String!
+  description: String!
+  images: [String!]!
+  additionalText: [Paragraph!]!
+  url: String!
+  git: String!
+  technologies: [Technology!]! @connection(keyName: "byName", fields: ["id"])
+}
+
+type Technology @model @key(name: "byName", fields: ["name"]) {
+  id: String!
+  name: ID!
+  image: String!
+}
+
+type Paragraph {
+  header: String!
+  content: String!
+}
