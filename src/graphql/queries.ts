@@ -26,10 +26,7 @@ export const syncProjects = /* GraphQL */ `
         }
         url
         git
-        technologies {
-          nextToken
-          startedAt
-        }
+        technologies
         _version
         _deleted
         _lastChangedAt
@@ -54,20 +51,7 @@ export const getProject = /* GraphQL */ `
       }
       url
       git
-      technologies {
-        items {
-          id
-          name
-          image
-          _version
-          _deleted
-          _lastChangedAt
-          createdAt
-          updatedAt
-        }
-        nextToken
-        startedAt
-      }
+      technologies
       _version
       _deleted
       _lastChangedAt
@@ -94,10 +78,7 @@ export const listProjects = /* GraphQL */ `
         }
         url
         git
-        technologies {
-          nextToken
-          startedAt
-        }
+        technologies
         _version
         _deleted
         _lastChangedAt

@@ -2,9 +2,12 @@
 // Define BlueprintJS theme + customization
 
 @import "./colors";
+@import "./base";
+@import "./mixin";
 // @import "./typography";
 // @import "./typography-two";
 @import "./blueprint-js/index";
+@import "./amplify-overrides";
 
 :root {
   font-size: 16px;
@@ -12,13 +15,13 @@
 }
 
 body {
-  margin: 0;
+  margin: 0 auto;
   background-color: $background-color;
-  height: 95vh;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
 #root {
-  height: 100vh;
+  max-width: 1200px;
+  margin: 0 auto;
 }

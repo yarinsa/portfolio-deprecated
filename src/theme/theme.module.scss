@@ -1,6 +1,9 @@
 @import "./colors";
-
+@import "./variables";
 :export {
   backgroundColor: $background-color;
   primaryColor: $primary-color;
+  phoneScreen: $phone;
+  tabletScreen: $tablet;
+  desktopScreen: $desktop;
 }

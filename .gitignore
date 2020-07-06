@@ -37,3 +37,9 @@ amplifyconfiguration.json
 amplify-build-config.json
 amplify-gradle-config.json
 amplifytools.xcconfig
+
+#apiKey
+/api/email.service.ts
+amplify/backend/storage/yarinPortfolioStorage/parameters.json
+amplify/backend/hosting/S3AndCloudFront
+src/api/email.service.ts

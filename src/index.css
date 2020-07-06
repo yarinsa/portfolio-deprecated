@@ -10,8 +10,4 @@ code {
     monospace;
 }
 
-#root {
-  width: 97vw;
-}
-
-@import "./_typography-two.scss";
+@import "./typography.scss";

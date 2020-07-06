@@ -18,20 +18,7 @@ export const createProject = /* GraphQL */ `
       }
       url
       git
-      technologies {
-        items {
-          id
-          name
-          image
-          _version
-          _deleted
-          _lastChangedAt
-          createdAt
-          updatedAt
-        }
-        nextToken
-        startedAt
-      }
+      technologies
       _version
       _deleted
       _lastChangedAt
@@ -56,20 +43,7 @@ export const updateProject = /* GraphQL */ `
       }
       url
       git
-      technologies {
-        items {
-          id
-          name
-          image
-          _version
-          _deleted
-          _lastChangedAt
-          createdAt
-          updatedAt
-        }
-        nextToken
-        startedAt
-      }
+      technologies
       _version
       _deleted
       _lastChangedAt
@@ -94,20 +68,7 @@ export const deleteProject = /* GraphQL */ `
       }
       url
       git
-      technologies {
-        items {
-          id
-          name
-          image
-          _version
-          _deleted
-          _lastChangedAt
-          createdAt
-          updatedAt
-        }
-        nextToken
-        startedAt
-      }
+      technologies
       _version
       _deleted
       _lastChangedAt

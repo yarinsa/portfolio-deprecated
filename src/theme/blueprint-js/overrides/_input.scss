@@ -1,0 +1,6 @@
+.bp3-input:focus,
+.bp3-input.bp3-active,
+.bp3-tag-input.bp3-active {
+  box-shadow: 0 0 0 1px #750da0, 0 0 0 3px #d48cec4d,
+    inset 0 1px 1px rgba(51, 51, 51, 0.2);
+}

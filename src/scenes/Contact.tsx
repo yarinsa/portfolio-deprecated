@@ -8,7 +8,7 @@ import { TEXT_SMALL } from "@blueprintjs/core/lib/esm/common/classes";
 import formValidation from "../utils/formValidation.util";
 import theme from "../theme/theme.module.scss";
 
-export const Contact: React.FC<{}> = ({}) => {
+export const Contact: React.FC<{}> = () => {
   const [formContent, setFormContent] = useState({
     name: "",
     phone: "",
@@ -47,16 +47,16 @@ export const Contact: React.FC<{}> = ({}) => {
     <Root>
       <StyledBackgroundImage />
       <Form onSubmit={onSubmit}>
-        <Name label="Name" labelFor="name">
+        <FormGroup label="Name" labelFor="name">
           <InputGroup required id="name" onChange={handleInput} />
-        </Name>
-        <Email label="Email" labelFor="email">
+        </FormGroup>
+        <FormGroup label="Email" labelFor="email">
           <InputGroup required id="email" onChange={handleInput} />
-        </Email>
-        <Phone label="Phone" labelFor="phone">
+        </FormGroup>
+        <FormGroup label="Phone" labelFor="phone">
           <InputGroup required id="phone" onChange={handleInput} />
-        </Phone>
-        <Message label="Message" labelFor="message">
+        </FormGroup>
+        <FormGroup label="Message" labelFor="message">
           <TextArea
             required
             growVertically={true}
@@ -65,7 +65,7 @@ export const Contact: React.FC<{}> = ({}) => {
             large={true}
             onChange={handleInput}
           />
-        </Message>
+        </FormGroup>
         <Note className={TEXT_SMALL}>* All fields are required</Note>
         <Submit text="Submit" type="submit" intent="primary"></Submit>
       </Form>
@@ -76,51 +76,38 @@ export const Contact: React.FC<{}> = ({}) => {
 const Root = styled.div`
   display: flex;
   flex-direction: column-reverse;
+  justify-content: center;
   height: 80%;
+  max-width: 600px;
 `;
+
 const Form = styled.form`
-  display: grid;
-  grid-template:
-    "name ."
-    "email phone"
-    "message message"
-    "note submit"
-    /250px 1fr;
-  gap: 20px;
-  padding: 0;
-  &-item {
-    position: relative;
-  }
+  display: flex;
+  flex-direction: column;
   z-index: 1;
   margin-top: 120px;
-`;
-
-const Name = styled(FormGroup)`
-  grid-area: name;
-`;
-
-const Email = styled(FormGroup)`
-  grid-area: email;
-`;
-
-const Phone = styled(FormGroup)`
-  grid-area: phone;
-  max-width: 250px;
-`;
-
-const Message = styled(FormGroup)`
-  grid-area: message;
+  @media only screen and (max-width: 640px) {
+    margin-top: 60px;
+  }
 `;
 
 const Note = styled.small`
   color: ${theme.primaryColor};
-  grid-area: note;
 `;
 
 const Submit = styled(Button)`
   grid-area: submit;
   width: 200px;
   margin-left: auto;
+  @media only screen and (max-width: 640px) {
+    width: 100%;
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    border-radius: 0;
+    height: 50px;
+    font-size: 18px;
+  }
 `;
 
 const StyledBackgroundImage = styled(BackgroundImage)`

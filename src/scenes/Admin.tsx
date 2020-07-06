@@ -1,46 +1,23 @@
 import React from "react";
 import styled from "styled-components";
-import { WorkList } from "../components/WorkList";
-import { AddProject } from "../components/AddProject";
-import { AddTechnology } from "../components/AddTechnology";
-
+import { ProjectList } from "../components/Projects/ProjectList";
+import { AddProject } from "../components/Projects/AddProject/AddProject";
 import { withAuthenticator, AmplifySignOut } from "@aws-amplify/ui-react";
-import { Storage } from "aws-amplify";
+import { TechnologiesPanel } from "../components/Technologies/TechnologiesPanel";
+import theme from "../theme/theme.module.scss";
 
-const Admin: React.FC<{}> = ({}) => {
-  Storage.list("")
-    .then((result) => console.log(result))
-    .catch((err) => console.log(err));
-  const handleUpload = (selectorFiles: FileList | null) => {
-    if (selectorFiles !== null) {
-      const file = selectorFiles[0];
-      console.log(file);
-      Storage.put("example.png", file, {
-        contentType: "image/png",
-      })
-        .then((uploadedImageUrl) => {
-          //   const technologyWithImage = { uploadedImageUrl, ...technology };
-          console.log(uploadedImageUrl);
-          //   setTechnology(technologyWithImage);
-        })
-        .catch((err) => console.log(err));
-    }
-  };
+const Admin: React.FC<{}> = () => {
   return (
     <Root>
-      <h1>Admin Page</h1>
+      <AddProject />
+      <Divider />
+      <TechnologiesPanel />
+      <hr />
+      <Divider />
       <ProjectsContainer>
-        <WorkList toggleDialog={() => {}}></WorkList>
+        <ProjectList />
       </ProjectsContainer>
-      <section>
-        <AddProject />
-      </section>
-      <AddTechnology />
-      <input
-        type="file"
-        accept="image/png"
-        onChange={(evt) => handleUpload(evt.target.files)}
-      />
+
       <AmplifySignOut />
     </Root>
   );
@@ -58,4 +35,13 @@ const ProjectsContainer = styled.section`
   overflow-y: scroll;
 `;
 
-const AddProjectContainer = styled.section``;
+const Divider = styled.hr`
+  height: 3px;
+  width: 100%;
+  background-color: ${theme.primaryColor};
+  border-radius: 10px;
+  box-shadow: none;
+  border: none;
+  opacity: 0.2;
+  margin: 20px 0;
+`;

@@ -1,52 +1,93 @@
 import React, { useState, useEffect } from "react";
-import { Tabs as BPTabs, Tab, Tooltip, Position } from "@blueprintjs/core";
+import {
+  Tabs as BPTabs,
+  Tab,
+  Tooltip,
+  Position,
+  Dialog,
+  Classes,
+} from "@blueprintjs/core";
 import styled from "styled-components";
-import { useHistory, useParams } from "react-router-dom";
-import { MatchParams } from "../routes";
+import { useHistory, Link, useLocation } from "react-router-dom";
+import { routes } from "../routes";
+import theme from "../theme/theme.module.scss";
 
-export const Tabs: React.FC<{}> = ({}) => {
-  let { tab } = useParams<MatchParams>();
-  console.log(tab);
+export const Tabs: React.FC<{}> = () => {
+  let location = useLocation();
   let history = useHistory();
+
   useEffect(() => {
     document.addEventListener("keydown", handleKey, false);
-
+    setSelectedTab(getActivePage());
     // Clean up event listener between renders!
     return function cleanup() {
-      document.removeEventListener("keydown", handleKey);
+      document.removeEventListener("keydown", handleKey, false);
     };
   });
 
-  const [selectedTabIndex, setTabIndex] = useState(0);
-
-  const tabs: string[] = ["Home", "About", "Work", "Contact", "Admin"];
-  const handleKey = (event: KeyboardEvent) => {
-    if (event.key === "ArrowRight" && selectedTabIndex < tabs.length - 1) {
-      handleTabChange(selectedTabIndex + 1);
-    }
-    if (event.key === "ArrowLeft" && selectedTabIndex > 0) {
-      handleTabChange(selectedTabIndex - 1);
-    }
+  const getActivePage = () => {
+    return location.pathname.split("/")[1];
   };
 
-  const handleTabChange = (tabIndex: string | number) => {
-    setTabIndex(+tabIndex);
-    history.push(`/${tabs[+tabIndex]}`);
+  const [selectedTab, setSelectedTab] = useState(getActivePage());
+  console.log(selectedTab);
+  const tabs: string[] = routes.map((route) => route.name);
+
+  const handleKey = (event: KeyboardEvent) => {
+    const selectedTabIndex = tabs.findIndex((tab) => tab === selectedTab);
+
+    if (!selectedTabIndex && selectedTabIndex !== 0) return;
+
+    if (event.key === "ArrowRight" && selectedTabIndex < tabs.length - 1) {
+      handleTabChange(tabs[selectedTabIndex + 1]);
+    }
+    if (event.key === "ArrowLeft" && selectedTabIndex > 0) {
+      handleTabChange(tabs[selectedTabIndex - 1]);
+    }
+  };
+  const [isAdminAlertOpen, setIsAdmin] = useState(false);
+
+  const handleTabChange = (tab: string) => {
+    setSelectedTab(tab);
+    history.push(`/${tab}`);
+    if (tab === "admin") {
+      setIsAdmin(true);
+    }
   };
 
   return (
     <Root>
+      {selectedTab === "admin" && (
+        <Dialog
+          isOpen={isAdminAlertOpen}
+          isCloseButtonShown={true}
+          onClose={() => setIsAdmin(false)}
+          title="Important Note!"
+        >
+          <p className={Classes.DIALOG_BODY}>
+            Welcome to the admin panel!
+            <br />
+            I keep this open for guests so they can have some fun with the UI,
+            <br />
+            username: guest@yarin.com,
+            <br />
+            password: 12345678
+            <br />
+            Have fun :)
+          </p>
+        </Dialog>
+      )}
       <Tooltip content="Use the arrow keys to navigate" position={Position.TOP}>
         <BPTabs
           id="TabsExample"
           onChange={handleTabChange}
-          selectedTabId={selectedTabIndex}
+          selectedTabId={selectedTab}
         >
-          <Tab id="0" title="Home" />
-          <Tab id="1" title="About" />
-          <Tab id="2" title="Work" />
-          <Tab id="3" title="Contact" />
-          <Tab id="4" title="Admin" />
+          {routes.map((route) => (
+            <Tab id={route.name} key={route.name} title={route.name}>
+              <Link to={`/${route.name}`} />
+            </Tab>
+          ))}
         </BPTabs>
       </Tooltip>
     </Root>
@@ -57,4 +98,8 @@ const Root = styled.div`
   margin: 0 20px;
   max-width: 460px;
   bottom: 30px;
+  @media only screen and (max-width: ${theme.phoneScreen}) {
+    margin: 0;
+    max-width: unset;
+  }
 `;

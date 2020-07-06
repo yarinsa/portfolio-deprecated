@@ -6,10 +6,10 @@ type Project @model {
   additionalText: [Paragraph!]!
   url: String!
   git: String!
-  technologies: [Technology!]! @connection(keyName: "byName", fields: ["id"])
+  technologies: [String!]!
 }
 
-type Technology @model @key(name: "byName", fields: ["name"]) {
+type Technology @model {
   id: String!
   name: ID!
   image: String!

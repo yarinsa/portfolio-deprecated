@@ -1,41 +1,37 @@
-import React, { useEffect } from "react";
+import React from "react";
 import "./theme/index.scss";
 // import "./_typography-two.scss";
 import "react-image-gallery/styles/scss/image-gallery.scss";
-import { Home } from "./scenes/Home";
-import { Tabs } from "./components/Tabs";
 import styled from "styled-components/macro";
-import {
-  BrowserRouter as Router,
-  Switch,
-  Route,
-  Redirect,
-} from "react-router-dom";
-import { About } from "./scenes/About";
-import { Work } from "./scenes/Work";
-import { Contact } from "./scenes/Contact";
-import Admin from "./scenes/Admin";
-
-document.querySelector("body")?.classList.replace("red", "blue");
+import { Switch, Route, Redirect } from "react-router-dom";
+import { routes } from "./routes";
+import { Header } from "./components/Header";
+import theme from "./theme/theme.module.scss";
+import { SocialMediaPanel } from "./components/SocialMediaPanel";
+import { ReactComponent as LinkedInLogo } from "./assets/social-media-icons/linkedin.svg";
+import { Button } from "@blueprintjs/core";
 
 function App() {
   return (
     <Root>
-      <Header>
-        <Tabs />
-      </Header>
+      <Header />
       <Switch>
         <Main>
-          <Route exact path="/">
-            <Redirect to="/home" />
-          </Route>
-          <Route path="/Home" component={Home} />
-          <Route path="/About" component={About} />
-          <Route path="/Work" component={Work} />
-          <Route path="/Contact" component={Contact} />
-          <Route path="/Admin" component={Admin} />
+          <Redirect exact from="/" to="/home" />
+          {routes.map((route, index) => {
+            return (
+              <Route key={index} path={`/${route.name}`}>
+                <route.component />
+              </Route>
+            );
+          })}
         </Main>
       </Switch>
+      <LinkedIn intent="primary">
+        <a href="https://www.linkedin.com/in/yarinsasson/">
+          <LinkedInLogo />
+        </a>
+      </LinkedIn>
     </Root>
   );
 }
@@ -45,17 +41,35 @@ export default App;
 const Root = styled.div`
   display: flex;
   flex-direction: column;
-  height: 100%;
-  padding: 20px;
+  justify-content: center;
+  align-items: center;
+  padding: 0 20px;
+  max-width: 1200px;
+  @media only screen and (max-width: ${theme.phoneScreen}) {
+    /* flex-direction: column-reverse; */
+  }
 `;
 
 const Main = styled.main`
   flex: 1;
+  width: 100%;
 `;
 
-const Header = styled.header`
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  margin-bottom: 30px;
+const LinkedInLink = styled(LinkedInLogo)``;
+
+const LinkedIn = styled(Button)`
+  position: fixed;
+  bottom: 8px;
+  right: 8px;
+  width: 50px;
+  height: 50px;
+  border-radius: 100%;
+  z-index: 2;
+  svg {
+    width: 30px;
+    height: 30px;
+  }
+  @media only screen and (max-width: ${theme.phoneScreen}) {
+    bottom: 30px;
+  }
 `;

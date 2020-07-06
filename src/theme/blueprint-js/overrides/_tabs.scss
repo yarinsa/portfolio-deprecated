@@ -6,6 +6,12 @@
     inset 0 1px 1px rgba(16, 22, 26, 0.2);
   border-radius: 8px;
   padding: 0 8px;
+
+  //responsive design
+  @media only screen and (max-width: 640px) {
+    border-radius: 0;
+    width: 100vw;
+  }
 }
 
 .bp3-tab {
@@ -17,9 +23,17 @@
   font-size: 22px;
   user-select: none;
   outline: none;
+  text-transform: capitalize;
+
+  //responsive design
+  @media only screen and (max-width: 640px) {
+    font-size: 16px;
+    height: 32px;
+  }
 }
 
-.bp3-tab[aria-selected="false"] {
+.bp3-tab[aria-selected="false"],
+.bp3-tab[aria-selected="true"] {
   color: #333;
   &:hover {
     color: $dark-gray5;
@@ -31,4 +45,8 @@
   bottom: 5px;
   border-radius: 4px;
   height: 30px;
+  @media only screen and (max-width: 640px) {
+    bottom: 4px;
+    height: 24px;
+  }
 }

@@ -22,12 +22,34 @@
             "service": "Cognito",
             "providerPlugin": "awscloudformation",
             "dependsOn": []
+        },
+        "userPoolGroups": {
+            "service": "Cognito-UserPool-Groups",
+            "providerPlugin": "awscloudformation",
+            "dependsOn": [
+                {
+                    "category": "auth",
+                    "resourceName": "yarinportfolio3945c558",
+                    "attributes": [
+                        "UserPoolId",
+                        "AppClientIDWeb",
+                        "AppClientID",
+                        "IdentityPoolId"
+                    ]
+                }
+            ]
         }
     },
     "function": {},
     "storage": {
         "yarinPortfolioStorage": {
             "service": "S3",
+            "providerPlugin": "awscloudformation"
+        }
+    },
+    "hosting": {
+        "S3AndCloudFront": {
+            "service": "S3AndCloudFront",
             "providerPlugin": "awscloudformation"
         }
     }
