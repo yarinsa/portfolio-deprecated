@@ -5,8 +5,14 @@ import { AddProject } from "../components/Projects/AddProject/AddProject";
 import { withAuthenticator, AmplifySignOut } from "@aws-amplify/ui-react";
 import { TechnologiesPanel } from "../components/Technologies/TechnologiesPanel";
 import theme from "../theme/theme.module.scss";
+import { Auth } from "aws-amplify";
 
 const Admin: React.FC<{}> = () => {
+  Auth.currentAuthenticatedUser({
+    bypassCache: false, // Optional, By default is false. If set to true, this call will send a request to Cognito to get the latest user data
+  })
+    .then((user) => console.log(user))
+    .catch((err) => console.log(err));
   return (
     <Root>
       <AddProject />

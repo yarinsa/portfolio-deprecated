@@ -8,7 +8,7 @@ import { Toaster } from "../Toaster";
 import { imageKeyToUrl } from "../../api/aws.service";
 
 interface TechnologyListProps {
-  technologies?: CreateTechnologyInput[];
+  technologies?: string[];
 }
 export const TechnologyList: React.FC<TechnologyListProps> = ({
   technologies,
@@ -24,8 +24,18 @@ export const TechnologyList: React.FC<TechnologyListProps> = ({
         const result: any = await API.graphql(
           graphqlOperation(listTechnologys)
         );
-        const list = await fetchImages(result.data.listTechnologys.items);
+        let list = await fetchImages(result.data.listTechnologys.items);
         setTechnologyList(list);
+
+        if (technologies) {
+          const filteredList = technologies.map((technology) => {
+            return list.find(
+              (technologyItem) => technologyItem.id === technology
+            );
+          });
+          console.log(filteredList);
+          setTechnologyList(filteredList as CreateTechnologyInput[]);
+        }
         setisLoading(false);
       } catch (error) {
         Toaster.show({
@@ -44,11 +54,11 @@ export const TechnologyList: React.FC<TechnologyListProps> = ({
         })
       ); //end of technologies list map
     }; //end of fetch images
-    if (technologies) {
-      setTechnologyList(technologies);
-    } else {
-      fetchTechnologies();
-    }
+    // if (technologies) {
+    //   setTechnologyList(technologies);
+    // } else {
+    fetchTechnologies();
+    // }
   }, []);
 
   const displayImages = (technologies: CreateTechnologyInput[]) => {

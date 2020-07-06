@@ -8,8 +8,9 @@ import { routes } from "./routes";
 import { Header } from "./components/Header";
 import theme from "./theme/theme.module.scss";
 import { SocialMediaPanel } from "./components/SocialMediaPanel";
-import { ReactComponent as LinkedInLogo } from "./assets/social-media-icons/linkedin.svg";
 import { Button } from "@blueprintjs/core";
+import { ReactComponent as LinkedInLogo } from "./assets/social-media-icons/linkedin.svg";
+import { ReactComponent as CVLogo } from "./assets/social-media-icons/cv.svg";
 
 function App() {
   return (
@@ -27,11 +28,18 @@ function App() {
           })}
         </Main>
       </Switch>
-      <LinkedIn intent="primary">
-        <a href="https://www.linkedin.com/in/yarinsasson/">
-          <LinkedInLogo />
-        </a>
-      </LinkedIn>
+      <ButtonContainer>
+        <RoundedButton intent="primary">
+          <a href="https://www.linkedin.com/in/yarinsasson/">
+            <LinkedInLogo />
+          </a>
+        </RoundedButton>
+        <RoundedButton intent="primary">
+          <a href="https://yarin-portfolio-storage-bucket165231-dev.s3.amazonaws.com/Yarin+Sasson+CV.pdf">
+            <CVLogo />
+          </a>
+        </RoundedButton>
+      </ButtonContainer>
     </Root>
   );
 }
@@ -55,21 +63,28 @@ const Main = styled.main`
   width: 100%;
 `;
 
-const LinkedInLink = styled(LinkedInLogo)``;
-
-const LinkedIn = styled(Button)`
+const ButtonContainer = styled.div`
   position: fixed;
   bottom: 8px;
   right: 8px;
+  display: flex;
+  flex-direction: column;
+
+  @media only screen and (max-width: ${theme.phoneScreen}) {
+    bottom: 30px;
+  }
+`;
+
+const RoundedButton = styled(Button)`
   width: 50px;
   height: 50px;
   border-radius: 100%;
   z-index: 2;
+  &:first-child {
+    margin-bottom: 10px;
+  }
   svg {
     width: 30px;
     height: 30px;
-  }
-  @media only screen and (max-width: ${theme.phoneScreen}) {
-    bottom: 30px;
   }
 `;

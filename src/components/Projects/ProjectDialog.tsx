@@ -66,7 +66,7 @@ export const ProjectDialog: React.FC<ProjectDialogProps> = ({
 
         <Paragraph>
           <ParagraphTitle>Technologies I used:</ParagraphTitle>
-          <TechnologyList />
+          <TechnologyList technologies={technologies} />
         </Paragraph>
       </Body>
       <Footer className={Classes.DIALOG_FOOTER}>
