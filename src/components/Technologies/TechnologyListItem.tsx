@@ -30,7 +30,7 @@ const Root = styled.div`
   padding: 5px;
   border: 1px solid ${theme.primaryColor};
   position: relative;
-
+  user-select:none;
   img {
     width: 100%;
     height: auto;

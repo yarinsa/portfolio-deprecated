@@ -2,5 +2,16 @@
 $black: #333 !default;
 
 //Please use only rgba variables
-$background-color: #faf8fbed !default;
-$primary-color: rgba(117, 13, 160, 1) !default;
+$background-color: rgba(237, 199, 183, 1) !default;
+$color-primary: rgba(172, 59, 97, 1) !default;
+
+:root {
+    --color-bg: rgba(237, 199, 183, 1);
+    $color-bg: var(--color-bg);
+    --color-bg-secondary: #ECC7B5;
+    --color-bg-secondary-rgb: 255, 231, 199;
+    $color-bg-secondary: rgba(236, 199, 181, 1);
+    --color-primary: #ac3b61;
+    --color-primary-rgb: 172, 59, 97;
+    $color-primary: rgba(172, 59, 97, 1) default;
+}

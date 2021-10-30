@@ -4,7 +4,7 @@ import styled from "styled-components/macro";
 import theme from "../theme/theme.module.scss";
 import { TechnologyList } from "../components/Technologies/TechnologyList";
 import { ProjectList } from "../components/Projects/ProjectList";
-import meImg from "../assets/me.png";
+import meImg from "../assets/me.jpg";
 
 export const Home: React.FC<{}> = () => {
   return (
@@ -44,6 +44,8 @@ const Title = styled.h1`
 const ProfilePic = styled.img`
   height: 200px;
   width: auto;
+  border-radius: 100%;
+  border: 1px solid ${theme.primaryColor};
   margin-right: 10vw;
   @media only screen and (max-width: ${theme.tabletScreen}) {
     margin: auto;

@@ -7,9 +7,9 @@ import { Switch, Route, Redirect } from "react-router-dom";
 import { routes } from "./routes";
 import { Header } from "./components/Header";
 import theme from "./theme/theme.module.scss";
-import { SocialMediaPanel } from "./components/SocialMediaPanel";
 import { Button } from "@blueprintjs/core";
 import { ReactComponent as LinkedInLogo } from "./assets/social-media-icons/linkedin.svg";
+import { ReactComponent as GitHubLogo } from "./assets/social-media-icons/github.svg";
 import { ReactComponent as CVLogo } from "./assets/social-media-icons/cv.svg";
 
 function App() {
@@ -30,8 +30,13 @@ function App() {
       </Switch>
       <ButtonContainer>
         <RoundedButton intent="primary">
-          <a href="https://www.linkedin.com/in/yarinsasson/">
+          <a href="https://www.github.com/yarinsa/">
             <LinkedInLogo />
+          </a>
+        </RoundedButton>
+        <RoundedButton intent="primary">
+          <a href="https://www.linkedin.com/in/yarinsasson/">
+            <GitHubLogo />
           </a>
         </RoundedButton>
         <RoundedButton intent="primary">
@@ -80,11 +85,11 @@ const RoundedButton = styled(Button)`
   height: 50px;
   border-radius: 100%;
   z-index: 2;
-  &:first-child {
-    margin-bottom: 10px;
+  &:not(:first-child) {
+    margin-top: 10px;
   }
   svg {
-    width: 30px;
-    height: 30px;
+    width: 20px;
+    height: 20px;
   }
 `;
