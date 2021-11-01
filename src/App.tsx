@@ -39,11 +39,11 @@ function App() {
             <GitHubLogo />
           </a>
         </RoundedButton>
-        <RoundedButton intent="primary">
+        {/* <RoundedButton intent="primary">
           <a href="https://yarin-portfolio-storage-bucket165231-dev.s3.amazonaws.com/Yarin+Sasson+CV.pdf">
             <CVLogo />
           </a>
-        </RoundedButton>
+        </RoundedButton> */}
       </ButtonContainer>
     </Root>
   );
