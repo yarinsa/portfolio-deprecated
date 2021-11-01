@@ -30,7 +30,6 @@ export const Tabs: React.FC<{}> = () => {
   };
 
   const [selectedTab, setSelectedTab] = useState(getActivePage());
-  console.log(selectedTab);
   const tabs: string[] = routes.map((route) => route.name);
 
   const handleKey = (event: KeyboardEvent) => {
